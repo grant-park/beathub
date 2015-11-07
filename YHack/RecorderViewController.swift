@@ -16,6 +16,8 @@ class RecorderViewController: UIViewController {
     
     var player:AVAudioPlayer!
     
+    var theCurrentFileName: String!
+    
     
 //    @IBAction func handleGesture(sender: AnyObject) {
 //        if sender.state == UIGestureRecognizerState.Began {
@@ -51,7 +53,7 @@ class RecorderViewController: UIViewController {
         recordButton.addTarget(self, action: Selector("holdRelease:"), forControlEvents: UIControlEvents.TouchUpInside)
         recordButton.addTarget(self, action: Selector("holdDown:"), forControlEvents: UIControlEvents.TouchDown)
         
-        
+        playButton.setTitle("Play", forState: .Normal)
         super.viewDidLoad()
         playButton.enabled = false
         setSessionPlayback()
@@ -137,7 +139,13 @@ class RecorderViewController: UIViewController {
     
     @IBAction func play(sender: UIButton) {
         setSessionPlayback()
-        play()
+        if (playButton.titleLabel?.text == "Play") {
+            playButton.setTitle("Stop", forState:.Normal)
+            play()
+        } else {
+            playButton.setTitle("Play", forState:.Normal)
+            stop()
+        }
     }
     
     func play() {
@@ -169,6 +177,7 @@ class RecorderViewController: UIViewController {
         let format = NSDateFormatter()
         format.dateFormat="yyyy-MM-dd-HH-mm-ss"
         let currentFileName = "recording-\(format.stringFromDate(NSDate())).m4a"
+        self.theCurrentFileName = currentFileName
         print(currentFileName)
        
         let documentsDirectory = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
@@ -460,58 +469,58 @@ class RecorderViewController: UIViewController {
 //        
 //    }
     
-    @IBAction
-    func speed() {
-        let asset = AVAsset(URL:self.soundFileURL!)
-        exportSpeedAsset(asset, fileName: "trimmed.m4a")
-    }
-    
-    func exportSpeedAsset(asset:AVAsset, fileName:String) {
-        let documentsDirectory = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
-        let trimmedSoundFileURL = documentsDirectory.URLByAppendingPathComponent(fileName)
-        
-        let filemanager = NSFileManager.defaultManager()
-        if filemanager.fileExistsAtPath(trimmedSoundFileURL.absoluteString) {
-            print("sound exists")
-        }
-        
-        if let exporter = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetAppleM4A) {
-            exporter.outputFileType = AVFileTypeAppleM4A
-            exporter.outputURL = trimmedSoundFileURL
-            
-            
-            //             AVAudioTimePitchAlgorithmVarispeed
-            //             AVAudioTimePitchAlgorithmSpectral
-            //             AVAudioTimePitchAlgorithmTimeDomain
-            exporter.audioTimePitchAlgorithm = AVAudioTimePitchAlgorithmVarispeed
-            
-            
-            
-            
-            let duration = CMTimeGetSeconds(asset.duration)
-            if (duration < 5.0) {
-                print("sound is not long enough")
-                return
-            }
-            // e.g. the first 5 seconds
-//            let startTime = CMTimeMake(0, 1)
-//            let stopTime = CMTimeMake(5, 1)
-//            let exportTimeRange = CMTimeRangeFromTimeToTime(startTime, stopTime)
-//            exporter.timeRange = exportTimeRange
-            
-            // do it
-            exporter.exportAsynchronouslyWithCompletionHandler({
-                switch exporter.status {
-                case  AVAssetExportSessionStatus.Failed:
-                    print("export failed \(exporter.error)")
-                case AVAssetExportSessionStatus.Cancelled:
-                    print("export cancelled \(exporter.error)")
-                default:
-                    print("export complete")
-                }
-            })
-        }
-    }
+//    @IBAction
+//    func speed() {
+//        let asset = AVAsset(URL:self.soundFileURL!)
+//        exportSpeedAsset(asset, fileName: "trimmed.m4a")
+//    }
+//    
+//    func exportSpeedAsset(asset:AVAsset, fileName:String) {
+//        let documentsDirectory = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+//        let trimmedSoundFileURL = documentsDirectory.URLByAppendingPathComponent(fileName)
+//        
+//        let filemanager = NSFileManager.defaultManager()
+//        if filemanager.fileExistsAtPath(trimmedSoundFileURL.absoluteString) {
+//            print("sound exists")
+//        }
+//        
+//        if let exporter = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetAppleM4A) {
+//            exporter.outputFileType = AVFileTypeAppleM4A
+//            exporter.outputURL = trimmedSoundFileURL
+//            
+//            
+//            //             AVAudioTimePitchAlgorithmVarispeed
+//            //             AVAudioTimePitchAlgorithmSpectral
+//            //             AVAudioTimePitchAlgorithmTimeDomain
+//            exporter.audioTimePitchAlgorithm = AVAudioTimePitchAlgorithmVarispeed
+//            
+//            
+//            
+//            
+//            let duration = CMTimeGetSeconds(asset.duration)
+//            if (duration < 5.0) {
+//                print("sound is not long enough")
+//                return
+//            }
+//            // e.g. the first 5 seconds
+////            let startTime = CMTimeMake(0, 1)
+////            let stopTime = CMTimeMake(5, 1)
+////            let exportTimeRange = CMTimeRangeFromTimeToTime(startTime, stopTime)
+////            exporter.timeRange = exportTimeRange
+//            
+//            // do it
+//            exporter.exportAsynchronouslyWithCompletionHandler({
+//                switch exporter.status {
+//                case  AVAssetExportSessionStatus.Failed:
+//                    print("export failed \(exporter.error)")
+//                case AVAssetExportSessionStatus.Cancelled:
+//                    print("export cancelled \(exporter.error)")
+//                default:
+//                    print("export complete")
+//                }
+//            })
+//        }
+//    }
 
     
 }
@@ -532,12 +541,29 @@ extension RecorderViewController : AVAudioRecorderDelegate {
                 preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "Keep", style: .Default, handler: {action in
                 print("keep was tapped")
+                //start uploading to Parse?
+                
+                let filePath = NSURL(fileURLWithPath: self.getCacheDirectory()).URLByAppendingPathComponent(self.theCurrentFileName)
+                
+                let dataToUpload : NSData = NSData(contentsOfURL: filePath)!
+                
+                let soundFile = PFFile(name: self.theCurrentFileName, data: dataToUpload)
+                let userSound = PFObject(className:"Audio")
+                userSound["name"] = self.theCurrentFileName
+                userSound["audio"] = soundFile
+                userSound.saveInBackground()
             }))
             alert.addAction(UIAlertAction(title: "Delete", style: .Default, handler: {action in
                 print("delete was tapped")
                 self.recorder.deleteRecording()
             }))
             self.presentViewController(alert, animated:true, completion:nil)
+    }
+    
+    func getCacheDirectory() -> String {
+        let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true) 
+        
+        return paths[0]
     }
     
     func audioRecorderEncodeErrorDidOccur(recorder: AVAudioRecorder,

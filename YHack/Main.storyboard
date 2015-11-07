@@ -18,6 +18,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kI1-0Y-yEN">
+                                <rect key="frame" x="285" y="432" width="30" height="29"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="q54-Ft-nu2"/>
+                                </constraints>
+                                <state key="normal">
+                                    <color key="titleColor" red="1" green="0.93654911549999997" blue="0.97152396220000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="play:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JVk-SE-1es"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epE-QD-OIR">
                                 <rect key="frame" x="277" y="249" width="46" height="21"/>
                                 <animations/>
@@ -58,30 +72,29 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="mic"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kI1-0Y-yEN">
-                                <rect key="frame" x="285" y="432" width="30" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press and Hold to Record." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vsZ-8x-vlz">
+                                <rect key="frame" x="200" y="174" width="201" height="21"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="29" id="q54-Ft-nu2"/>
+                                    <constraint firstAttribute="width" constant="201" id="FVS-3d-pfL"/>
                                 </constraints>
-                                <state key="normal" title="Play">
-                                    <color key="titleColor" red="1" green="0.93654911549999997" blue="0.97152396220000004" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="play:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JVk-SE-1es"/>
-                                </connections>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.93654911549999997" blue="0.97152396220000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.26093786830104165" green="0.25230134974749924" blue="0.28002683080808077" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="vsZ-8x-vlz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="110" id="0Z2-Cd-Azu"/>
                             <constraint firstItem="jfc-Ag-JZ9" firstAttribute="top" secondItem="4oB-ym-3VM" secondAttribute="bottom" constant="17" id="8lk-8W-KQZ"/>
                             <constraint firstItem="epE-QD-OIR" firstAttribute="centerX" secondItem="4oB-ym-3VM" secondAttribute="centerX" id="IVw-XS-Rh2"/>
                             <constraint firstItem="kI1-0Y-yEN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Xec-7b-PCG"/>
                             <constraint firstItem="epE-QD-OIR" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="249" id="XpD-4R-pmQ"/>
                             <constraint firstItem="7dy-Uj-1x0" firstAttribute="centerX" secondItem="epE-QD-OIR" secondAttribute="centerX" id="Xzu-tt-ndV"/>
+                            <constraint firstItem="epE-QD-OIR" firstAttribute="top" secondItem="vsZ-8x-vlz" secondAttribute="bottom" constant="54" id="YXX-s6-UQ0"/>
                             <constraint firstItem="4oB-ym-3VM" firstAttribute="centerX" secondItem="jfc-Ag-JZ9" secondAttribute="centerX" id="aCk-3T-RN4"/>
+                            <constraint firstItem="vsZ-8x-vlz" firstAttribute="centerX" secondItem="epE-QD-OIR" secondAttribute="centerX" id="aTD-c3-H6f"/>
                             <constraint firstItem="4oB-ym-3VM" firstAttribute="top" secondItem="kI1-0Y-yEN" secondAttribute="bottom" constant="17" id="jPm-gs-uCA"/>
                             <constraint firstItem="kI1-0Y-yEN" firstAttribute="centerX" secondItem="4oB-ym-3VM" secondAttribute="centerX" id="oI9-US-s0z"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jfc-Ag-JZ9" secondAttribute="bottom" constant="45" id="psD-To-Nin"/>
