@@ -548,70 +548,120 @@ class RecorderViewController: UIViewController {
         
         var error:NSError?
         
-        var ok1 = false
-        var ok2 = false
+        let ok1 = false
+        let ok2 = false
         
         
-        var documentsDirectory:String = paths[0] as! String
+        let documentsDirectory = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
         
         //Create AVMutableComposition Object.This object will hold our multiple AVMutableCompositionTrack.
-        var composition = AVMutableComposition()
-        var compositionAudioTrack1:AVMutableCompositionTrack = composition.addMutableTrackWithMediaType(AVMediaTypeAudio, preferredTrackID: CMPersistentTrackID())
-        var compositionAudioTrack2:AVMutableCompositionTrack = composition.addMutableTrackWithMediaType(AVMediaTypeAudio, preferredTrackID: CMPersistentTrackID())
+        let composition = AVMutableComposition()
+        let compositionAudioTrack1:AVMutableCompositionTrack = composition.addMutableTrackWithMediaType(AVMediaTypeAudio, preferredTrackID: CMPersistentTrackID())
+        let compositionAudioTrack2:AVMutableCompositionTrack = composition.addMutableTrackWithMediaType(AVMediaTypeAudio, preferredTrackID: CMPersistentTrackID())
         
         //create new file to receive data
-        var documentDirectoryURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first! as! NSURL
-        var fileDestinationUrl = documentDirectoryURL.URLByAppendingPathComponent("resultmerge.m4a")
+        let documentDirectoryURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first! 
+        let fileDestinationUrl = documentDirectoryURL.URLByAppendingPathComponent("resultmerge.m4a")
         print(fileDestinationUrl)
         
         
-        var url1 = audio1
-        var url2 = audio2
         
         
-        var avAsset1 = AVURLAsset(URL: url1, options: nil)
-        var avAsset2 = AVURLAsset(URL: url2, options: nil)
+        
+        
+        let filePath = NSURL(fileURLWithPath: self.getCacheDirectory()).URLByAppendingPathComponent(self.theCurrentFileName)
+        
+        let dataToUpload : NSData = NSData(contentsOfURL: filePath)!
+        
+    
+        
+        let file = "resultmerge.m4a"
+        var dirs : [String] = (NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true) as? [String])!
+        let dir = dirs[0] //documents directory
+        let path = NSURL(fileURLWithPath: dir).URLByAppendingPathComponent(file)
+        var pathURLarray:Array = (NSURL(fileURLWithPath: "\(path)")).pathComponents!
+        
+        
+        var pathURL:String = ""
+        var final = ""
+        var debut = ""
+        
+        for i in 1...(pathURLarray.count-1) {
+            if i == pathURLarray.count-1 {
+                final = ""
+            } else {
+                final = "/"
+            }
+            if i == 1 {
+                debut = "/"
+            } else {
+                debut = ""
+            }
+            pathURL = debut + pathURL + (pathURLarray[i] ) + final
+        }
+        
+        let checkValidation = NSFileManager.defaultManager()
+        if checkValidation.fileExistsAtPath(pathURL) {
+            print("file exist")
+            do {var lol = try NSFileManager.defaultManager().removeItemAtURL(fileDestinationUrl)} catch {
+                    print("nsfilemanager pls")
+            }
+        } else {
+            print("no file")
+        }
+        
+        
+        let url1 = audio1
+        let url2 = audio2
+        
+        
+        let avAsset1 = AVURLAsset(URL: url1, options: nil)
+        let avAsset2 = AVURLAsset(URL: url2, options: nil)
         
         var tracks1 =  avAsset1.tracksWithMediaType(AVMediaTypeAudio)
         var tracks2 =  avAsset2.tracksWithMediaType(AVMediaTypeAudio)
         
-        var assetTrack1:AVAssetTrack = tracks1[0] as! AVAssetTrack
-        var assetTrack2:AVAssetTrack = tracks2[0] as! AVAssetTrack
+        let assetTrack1:AVAssetTrack = tracks1[0] 
+        let assetTrack2:AVAssetTrack = tracks2[0] 
         
         
-        var duration1: CMTime = assetTrack1.timeRange.duration
-        var duration2: CMTime = assetTrack2.timeRange.duration
+        let duration1: CMTime = assetTrack1.timeRange.duration
+        let duration2: CMTime = assetTrack2.timeRange.duration
         
-        var timeRange1 = CMTimeRangeMake(kCMTimeZero, duration1)
-        var timeRange2 = CMTimeRangeMake(duration1, duration2)
+        let timeRange1 = CMTimeRangeMake(kCMTimeZero, duration1)
+        let timeRange2 = CMTimeRangeMake(duration1, duration2)
         do {
-            try ok1 = compositionAudioTrack1.insertTimeRange(timeRange1, ofTrack: assetTrack1, atTime: kCMTimeZero)
+            var ok1 = try compositionAudioTrack1.insertTimeRange(timeRange1, ofTrack: assetTrack1, atTime: kCMTimeZero)
         } catch {
             print("error with ok1")
         }
         if ok1 {
             
-            ok2 = compositionAudioTrack2.insertTimeRange(timeRange2, ofTrack: assetTrack2, atTime: duration1, error: nil)
+            do { var ok2 = try compositionAudioTrack2.insertTimeRange(timeRange2, ofTrack: assetTrack2, atTime: duration1)} catch {
+                print("ok2 didnt work")
+            }
             
             if ok2 {
-                println("success")
+                print("success")
             }
         }
         
         //AVAssetExportPresetPassthrough => concatenation
-        var assetExport = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetPassthrough)
-        assetExport.outputFileType = AVFileTypeWAVE
-        assetExport.outputURL = fileDestinationUrl
-        assetExport.exportAsynchronouslyWithCompletionHandler({
-            switch assetExport.status{
+        let assetExport = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetAppleM4A)
+        assetExport!.outputFileType = AVFileTypeAppleM4A
+        assetExport!.outputURL = fileDestinationUrl
+        assetExport!.exportAsynchronouslyWithCompletionHandler({
+            switch assetExport!.status{
             case  AVAssetExportSessionStatus.Failed:
-                println("failed \(assetExport.error)")
+                print("failed \(assetExport!.error)")
             case AVAssetExportSessionStatus.Cancelled:
-                println("cancelled \(assetExport.error)")
+                print("cancelled \(assetExport!.error)")
             default:
-                println("complete")
+                print("complete")
                 var audioPlayer = AVAudioPlayer()
-                audioPlayer = AVAudioPlayer(contentsOfURL: fileDestinationUrl, error: nil)
+                do{ try audioPlayer = AVAudioPlayer(contentsOfURL: fileDestinationUrl, fileTypeHint: nil) } catch {
+                    print("audioplayer pls")
+                }
                 audioPlayer.prepareToPlay()
                 audioPlayer.play()
             }
