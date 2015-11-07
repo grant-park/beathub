@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		93802BD21BED77AF00B74132 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802BD11BED77AF00B74132 /* AppDelegate.swift */; };
-		93802BD41BED77AF00B74132 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802BD31BED77AF00B74132 /* ViewController.swift */; };
 		93802BD91BED77AF00B74132 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93802BD81BED77AF00B74132 /* Assets.xcassets */; };
 		93802BDC1BED77AF00B74132 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93802BDA1BED77AF00B74132 /* LaunchScreen.storyboard */; };
 		93802BE71BED77AF00B74132 /* YHackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802BE61BED77AF00B74132 /* YHackTests.swift */; };
@@ -41,7 +40,6 @@
 		124FAC521803DDC4CE106775 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93802BCE1BED77AF00B74132 /* YHack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YHack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93802BD11BED77AF00B74132 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		93802BD31BED77AF00B74132 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		93802BD81BED77AF00B74132 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93802BDB1BED77AF00B74132 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93802BDD1BED77AF00B74132 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -119,7 +117,6 @@
 			isa = PBXGroup;
 			children = (
 				93802BD11BED77AF00B74132 /* AppDelegate.swift */,
-				93802BD31BED77AF00B74132 /* ViewController.swift */,
 				93802C021BEDA76C00B74132 /* Main.storyboard */,
 				93802BD81BED77AF00B74132 /* Assets.xcassets */,
 				93802C061BEDA7A300B74132 /* RecordingCollectionViewCell.swift */,
@@ -341,7 +338,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				93802C071BEDA7A300B74132 /* RecordingCollectionViewCell.swift in Sources */,
-				93802BD41BED77AF00B74132 /* ViewController.swift in Sources */,
 				93802C051BEDA79A00B74132 /* RecorderViewController.swift in Sources */,
 				93802C091BEDA7AB00B74132 /* RecordingsCollectionViewController.swift in Sources */,
 				93802BD21BED77AF00B74132 /* AppDelegate.swift in Sources */,

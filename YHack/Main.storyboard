@@ -18,29 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YWe-rD-5VP">
-                                <rect key="frame" x="202" y="113" width="49" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Record">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="record:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fL5-fm-xJg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kI1-0Y-yEN">
-                                <rect key="frame" x="353" y="113" width="30" height="29"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="29" id="RS4-3b-0IY"/>
-                                </constraints>
-                                <state key="normal" title="Play">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="play:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JVk-SE-1es"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epE-QD-OIR">
                                 <rect key="frame" x="277" y="249" width="46" height="21"/>
                                 <animations/>
@@ -48,81 +25,74 @@
                                     <constraint firstAttribute="height" constant="21" id="AsG-qD-aEQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="0.93654911549999997" blue="0.97152396220000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oB-ym-3VM">
                                 <rect key="frame" x="240" y="478" width="119" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Show Recordings">
+                                    <color key="titleColor" red="1" green="0.93654911549999997" blue="0.97152396220000004" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="fGx-Ly-7k8" kind="show" id="XuJ-dw-MQm"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPv-pV-Fnz">
-                                <rect key="frame" x="284" y="113" width="32" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Stop">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="stop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OVF-bL-Q72"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jfc-Ag-JZ9">
                                 <rect key="frame" x="224" y="525" width="152" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Remove all recordings">
+                                    <color key="titleColor" red="1" green="0.93654911549999997" blue="0.97152396220000004" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="removeAll:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wjb-Gy-VQl"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PcE-hQ-7ml">
-                                <rect key="frame" x="284" y="268" width="31" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dy-Uj-1x0">
+                                <rect key="frame" x="256" y="324" width="88" height="90"/>
                                 <animations/>
-                                <state key="normal" title="Trim"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="88" id="fyo-in-TMD"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="mic"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kI1-0Y-yEN">
+                                <rect key="frame" x="285" y="432" width="30" height="29"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="q54-Ft-nu2"/>
+                                </constraints>
+                                <state key="normal" title="Play">
+                                    <color key="titleColor" red="1" green="0.93654911549999997" blue="0.97152396220000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
-                                    <action selector="trim" destination="BYZ-38-t0r" eventType="touchUpInside" id="byh-bb-b7I"/>
+                                    <action selector="play:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JVk-SE-1es"/>
                                 </connections>
                             </button>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.26093786830104165" green="0.25230134974749924" blue="0.28002683080808077" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="jfc-Ag-JZ9" firstAttribute="top" secondItem="4oB-ym-3VM" secondAttribute="bottom" constant="17" id="8lk-8W-KQZ"/>
-                            <constraint firstItem="YWe-rD-5VP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="49" id="AXk-AX-i3z"/>
-                            <constraint firstItem="PcE-hQ-7ml" firstAttribute="leading" secondItem="jfc-Ag-JZ9" secondAttribute="trailing" constant="27" id="ROS-Dp-goS"/>
+                            <constraint firstItem="epE-QD-OIR" firstAttribute="centerX" secondItem="4oB-ym-3VM" secondAttribute="centerX" id="IVw-XS-Rh2"/>
+                            <constraint firstItem="kI1-0Y-yEN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Xec-7b-PCG"/>
                             <constraint firstItem="epE-QD-OIR" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="249" id="XpD-4R-pmQ"/>
+                            <constraint firstItem="7dy-Uj-1x0" firstAttribute="centerX" secondItem="epE-QD-OIR" secondAttribute="centerX" id="Xzu-tt-ndV"/>
                             <constraint firstItem="4oB-ym-3VM" firstAttribute="centerX" secondItem="jfc-Ag-JZ9" secondAttribute="centerX" id="aCk-3T-RN4"/>
-                            <constraint firstItem="PcE-hQ-7ml" firstAttribute="centerX" secondItem="4oB-ym-3VM" secondAttribute="centerX" id="bZB-Bj-ZDA"/>
-                            <constraint firstItem="PcE-hQ-7ml" firstAttribute="top" secondItem="jfc-Ag-JZ9" secondAttribute="top" id="bwP-8A-3Uc"/>
-                            <constraint firstItem="kI1-0Y-yEN" firstAttribute="top" secondItem="UPv-pV-Fnz" secondAttribute="top" id="c41-H9-DGF"/>
-                            <constraint firstItem="PcE-hQ-7ml" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="268" id="eUL-ms-nXC"/>
-                            <constraint firstItem="UPv-pV-Fnz" firstAttribute="leading" secondItem="YWe-rD-5VP" secondAttribute="trailing" constant="33" id="hxb-rB-Mw3"/>
+                            <constraint firstItem="4oB-ym-3VM" firstAttribute="top" secondItem="kI1-0Y-yEN" secondAttribute="bottom" constant="17" id="jPm-gs-uCA"/>
+                            <constraint firstItem="kI1-0Y-yEN" firstAttribute="centerX" secondItem="4oB-ym-3VM" secondAttribute="centerX" id="oI9-US-s0z"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jfc-Ag-JZ9" secondAttribute="bottom" constant="45" id="psD-To-Nin"/>
-                            <constraint firstItem="epE-QD-OIR" firstAttribute="centerX" secondItem="PcE-hQ-7ml" secondAttribute="centerX" id="reZ-FJ-cH3"/>
-                            <constraint firstItem="UPv-pV-Fnz" firstAttribute="leading" secondItem="PcE-hQ-7ml" secondAttribute="leading" id="tf7-gY-s9v"/>
-                            <constraint firstItem="YWe-rD-5VP" firstAttribute="baseline" secondItem="UPv-pV-Fnz" secondAttribute="baseline" id="uKf-FI-elL"/>
-                            <constraint firstItem="kI1-0Y-yEN" firstAttribute="leading" secondItem="UPv-pV-Fnz" secondAttribute="trailing" constant="37" id="yoP-de-u1Q"/>
-                            <constraint firstItem="UPv-pV-Fnz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zhF-Tz-n3g"/>
+                            <constraint firstItem="7dy-Uj-1x0" firstAttribute="top" secondItem="epE-QD-OIR" secondAttribute="bottom" constant="54" id="uEp-cw-vJH"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="ROS-Dp-goS"/>
-                                <exclude reference="bwP-8A-3Uc"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="Ho9-1u-dEg"/>
                     <connections>
                         <outlet property="playButton" destination="kI1-0Y-yEN" id="kru-li-nbE"/>
-                        <outlet property="recordButton" destination="YWe-rD-5VP" id="ew0-OE-UxJ"/>
+                        <outlet property="recordButton" destination="7dy-Uj-1x0" id="3K2-sK-5ob"/>
                         <outlet property="statusLabel" destination="epE-QD-OIR" id="3dN-pr-aeO"/>
-                        <outlet property="stopButton" destination="UPv-pV-Fnz" id="sl5-3S-Mic"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -146,7 +116,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="recordingCell" id="8Xq-ld-PZS" customClass="RecordingCollectionViewCell" customModule="YHack" customModuleProvider="target">
-                                <rect key="frame" x="149.5" y="64" width="301" height="76"/>
+                                <rect key="frame" x="150" y="64" width="301" height="76"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="301" height="76"/>
@@ -216,4 +186,7 @@
             <point key="canvasLocation" x="136" y="-557"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="mic" width="90" height="90"/>
+    </resources>
 </document>

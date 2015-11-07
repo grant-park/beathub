@@ -16,9 +16,28 @@ class RecorderViewController: UIViewController {
     
     var player:AVAudioPlayer!
     
-    @IBOutlet var recordButton: UIButton!
     
-    @IBOutlet var stopButton: UIButton!
+//    @IBAction func handleGesture(sender: AnyObject) {
+//        if sender.state == UIGestureRecognizerState.Began {
+//            record()
+//            print("recording")
+//        } else if (sender.state == UIGestureRecognizerState.Ended) {
+//            stop()
+//            print("stopping"
+//        }
+//    }
+    func holdRelease(sender: UIButton) {
+        print("hold release")
+        stop()
+    }
+    
+    func holdDown(sender: UIButton) {
+        print("hold down")
+        record()
+    }
+    
+    
+    @IBOutlet weak var recordButton: UIButton!
     
     @IBOutlet var playButton: UIButton!
     
@@ -29,9 +48,11 @@ class RecorderViewController: UIViewController {
     var soundFileURL:NSURL!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        recordButton.addTarget(self, action: Selector("holdRelease:"), forControlEvents: UIControlEvents.TouchUpInside)
+        recordButton.addTarget(self, action: Selector("holdDown:"), forControlEvents: UIControlEvents.TouchDown)
         
-        stopButton.enabled = false
+        
+        super.viewDidLoad()
         playButton.enabled = false
         setSessionPlayback()
         askForNotifications()
@@ -63,37 +84,35 @@ class RecorderViewController: UIViewController {
         deleteAllRecordings()
     }
     
-    @IBAction func record(sender: UIButton) {
+    func record() {
         
         if player != nil && player.playing {
             player.stop()
         }
         
-        if recorder == nil {
-            print("recording. recorder nil")
-            recordButton.setTitle("Pause", forState:.Normal)
-            playButton.enabled = false
-            stopButton.enabled = true
-            recordWithPermission(true)
-            return
-        }
+//        if recorder == nil {
+//            print("recording. recorder nil")
+////            recordButton.setTitle("Pause", forState:.Normal)
+//            playButton.enabled = false
+//            recordWithPermission(true)
+//            return
+//        }
         
-        if recorder != nil && recorder.recording {
-            print("pausing")
-            recorder.pause()
-            recordButton.setTitle("Continue", forState:.Normal)
-            
-        } else {
+//        if recorder != nil && recorder.recording {
+//            print("pausing")
+//            recorder.pause()
+//            recordButton.setTitle("Continue", forState:.Normal)
+//            
+//        } else {
             print("recording")
-            recordButton.setTitle("Pause", forState:.Normal)
+//            recordButton.setTitle("Pause", forState:.Normal)
             playButton.enabled = false
-            stopButton.enabled = true
+//            stopButton.enabled = true
             //            recorder.record()
             recordWithPermission(false)
-        }
     }
     
-    @IBAction func stop(sender: UIButton) {
+    func stop() {
         print("stop")
 
         recorder?.stop()
@@ -106,7 +125,7 @@ class RecorderViewController: UIViewController {
         do {
             try session.setActive(false)
             playButton.enabled = true
-            stopButton.enabled = false
+//            stopButton.enabled = false
             recordButton.enabled = true
         } catch let error as NSError {
             print("could not make session inactive")
@@ -133,7 +152,7 @@ class RecorderViewController: UIViewController {
         
         do {
             self.player = try AVAudioPlayer(contentsOfURL: url!)
-            stopButton.enabled = true
+//            stopButton.enabled = true
             player.delegate = self
             player.prepareToPlay()
             player.volume = 1.0
@@ -349,97 +368,97 @@ class RecorderViewController: UIViewController {
         }
     }
     
-    @IBAction
-    func trim() {
-        if self.soundFileURL == nil {
-            print("no sound file")
-            return
-        }
-        
-        print("trimming \(soundFileURL!.absoluteString)")
-        print("trimming path \(soundFileURL!.lastPathComponent)")
-        let asset = AVAsset(URL:self.soundFileURL!)
-        exportAsset(asset, fileName: "trimmed.m4a")
-    }
-    
-    func exportAsset(asset:AVAsset, fileName:String) {
-        let documentsDirectory = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
-        let trimmedSoundFileURL = documentsDirectory.URLByAppendingPathComponent(fileName)
-        print("saving to \(trimmedSoundFileURL.absoluteString)")
-
-
-        
-        if NSFileManager.defaultManager().fileExistsAtPath(trimmedSoundFileURL.absoluteString) {
-            print("sound exists, removing \(trimmedSoundFileURL.absoluteString)")
-            do {
-                var error:NSError?
-                if trimmedSoundFileURL.checkResourceIsReachableAndReturnError(&error) {
-                    print("is reachable")
-                }
-                if let e = error {
-                    print(e.localizedDescription)
-                }
-                
-                try NSFileManager.defaultManager().removeItemAtPath(trimmedSoundFileURL.absoluteString)
-            } catch let error as NSError {
-                NSLog("could not remove \(trimmedSoundFileURL)")
-                print(error.localizedDescription)
-            }
-           
-        }
-        
-        if let exporter = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetAppleM4A) {
-            exporter.outputFileType = AVFileTypeAppleM4A
-            exporter.outputURL = trimmedSoundFileURL
-            
-            let duration = CMTimeGetSeconds(asset.duration)
-            if (duration < 5.0) {
-                print("sound is not long enough")
-                return
-            }
-            // e.g. the first 5 seconds
-            let startTime = CMTimeMake(0, 1)
-            let stopTime = CMTimeMake(5, 1)
-            exporter.timeRange = CMTimeRangeFromTimeToTime(startTime, stopTime)
-            
-//            // set up the audio mix
-//            let tracks = asset.tracksWithMediaType(AVMediaTypeAudio)
-//            if tracks.count == 0 {
+//    @IBAction
+//    func trim() {
+//        if self.soundFileURL == nil {
+//            print("no sound file")
+//            return
+//        }
+//        
+//        print("trimming \(soundFileURL!.absoluteString)")
+//        print("trimming path \(soundFileURL!.lastPathComponent)")
+//        let asset = AVAsset(URL:self.soundFileURL!)
+//        exportAsset(asset, fileName: "trimmed.m4a")
+//    }
+//    
+//    func exportAsset(asset:AVAsset, fileName:String) {
+//        let documentsDirectory = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+//        let trimmedSoundFileURL = documentsDirectory.URLByAppendingPathComponent(fileName)
+//        print("saving to \(trimmedSoundFileURL.absoluteString)")
+//
+//
+//        
+//        if NSFileManager.defaultManager().fileExistsAtPath(trimmedSoundFileURL.absoluteString) {
+//            print("sound exists, removing \(trimmedSoundFileURL.absoluteString)")
+//            do {
+//                var error:NSError?
+//                if trimmedSoundFileURL.checkResourceIsReachableAndReturnError(&error) {
+//                    print("is reachable")
+//                }
+//                if let e = error {
+//                    print(e.localizedDescription)
+//                }
+//                
+//                try NSFileManager.defaultManager().removeItemAtPath(trimmedSoundFileURL.absoluteString)
+//            } catch let error as NSError {
+//                NSLog("could not remove \(trimmedSoundFileURL)")
+//                print(error.localizedDescription)
+//            }
+//           
+//        }
+//        
+//        if let exporter = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetAppleM4A) {
+//            exporter.outputFileType = AVFileTypeAppleM4A
+//            exporter.outputURL = trimmedSoundFileURL
+//            
+//            let duration = CMTimeGetSeconds(asset.duration)
+//            if (duration < 5.0) {
+//                print("sound is not long enough")
 //                return
 //            }
-//            let track = tracks[0]
-//            let exportAudioMix = AVMutableAudioMix()
-//            let exportAudioMixInputParameters =
-//            AVMutableAudioMixInputParameters(track: track)
-//            exportAudioMixInputParameters.setVolume(1.0, atTime: CMTimeMake(0, 1))
-//            exportAudioMix.inputParameters = [exportAudioMixInputParameters]
-//            // exporter.audioMix = exportAudioMix
-            
-            // do it
-            exporter.exportAsynchronouslyWithCompletionHandler({
-                switch exporter.status {
-                case  AVAssetExportSessionStatus.Failed:
-
-                    if let e = exporter.error {
-                        print("export failed \(e)")
-                        switch e.code {
-                        case AVError.FileAlreadyExists.rawValue:
-                            print("File Exists")
-                            break
-                        default: break
-                        }
-                    } else {
-                        print("export failed")
-                    }
-                case AVAssetExportSessionStatus.Cancelled:
-                    print("export cancelled \(exporter.error)")
-                default:
-                    print("export complete")
-                }
-            })
-        }
-        
-    }
+//            // e.g. the first 5 seconds
+//            let startTime = CMTimeMake(0, 1)
+//            let stopTime = CMTimeMake(5, 1)
+//            exporter.timeRange = CMTimeRangeFromTimeToTime(startTime, stopTime)
+//            
+////            // set up the audio mix
+////            let tracks = asset.tracksWithMediaType(AVMediaTypeAudio)
+////            if tracks.count == 0 {
+////                return
+////            }
+////            let track = tracks[0]
+////            let exportAudioMix = AVMutableAudioMix()
+////            let exportAudioMixInputParameters =
+////            AVMutableAudioMixInputParameters(track: track)
+////            exportAudioMixInputParameters.setVolume(1.0, atTime: CMTimeMake(0, 1))
+////            exportAudioMix.inputParameters = [exportAudioMixInputParameters]
+////            // exporter.audioMix = exportAudioMix
+//            
+//            // do it
+//            exporter.exportAsynchronouslyWithCompletionHandler({
+//                switch exporter.status {
+//                case  AVAssetExportSessionStatus.Failed:
+//
+//                    if let e = exporter.error {
+//                        print("export failed \(e)")
+//                        switch e.code {
+//                        case AVError.FileAlreadyExists.rawValue:
+//                            print("File Exists")
+//                            break
+//                        default: break
+//                        }
+//                    } else {
+//                        print("export failed")
+//                    }
+//                case AVAssetExportSessionStatus.Cancelled:
+//                    print("export cancelled \(exporter.error)")
+//                default:
+//                    print("export complete")
+//                }
+//            })
+//        }
+//        
+//    }
     
     @IBAction
     func speed() {
@@ -503,7 +522,7 @@ extension RecorderViewController : AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder,
         successfully flag: Bool) {
             print("finished recording \(flag)")
-            stopButton.enabled = false
+//            stopButton.enabled = false
             playButton.enabled = true
             recordButton.setTitle("Record", forState:.Normal)
             
@@ -536,7 +555,7 @@ extension RecorderViewController : AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
         print("finished playing \(flag)")
         recordButton.enabled = true
-        stopButton.enabled = false
+//        stopButton.enabled = false
     }
     
     func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?) {
