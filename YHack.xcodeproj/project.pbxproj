@@ -20,6 +20,8 @@
 		93802C111BEE0F0000B74132 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C101BEE0F0000B74132 /* LoginViewController.swift */; };
 		93802C131BEE0F1300B74132 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C121BEE0F1300B74132 /* SignUpViewController.swift */; };
 		93802C151BEE0F2000B74132 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C141BEE0F2000B74132 /* ResetPasswordViewController.swift */; };
+		93802C171BEE812100B74132 /* StudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C161BEE812100B74132 /* StudioViewController.swift */; };
+		93802C191BEE88C800B74132 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C181BEE88C800B74132 /* CustomTableViewCell.swift */; };
 		EC410E4C8ADF70707F737FBB /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 124FAC521803DDC4CE106775 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,8 @@
 		93802C101BEE0F0000B74132 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		93802C121BEE0F1300B74132 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		93802C141BEE0F2000B74132 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		93802C161BEE812100B74132 /* StudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudioViewController.swift; sourceTree = "<group>"; };
+		93802C181BEE88C800B74132 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		94C58F10F6C3C06D07493A6C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		99BE2D20C11887C88BDBD712 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,6 +136,8 @@
 				93802BD81BED77AF00B74132 /* Assets.xcassets */,
 				93802C061BEDA7A300B74132 /* RecordingCollectionViewCell.swift */,
 				93802C081BEDA7AB00B74132 /* RecordingsCollectionViewController.swift */,
+				93802C161BEE812100B74132 /* StudioViewController.swift */,
+				93802C181BEE88C800B74132 /* CustomTableViewCell.swift */,
 				93802C101BEE0F0000B74132 /* LoginViewController.swift */,
 				93802C121BEE0F1300B74132 /* SignUpViewController.swift */,
 				93802C141BEE0F2000B74132 /* ResetPasswordViewController.swift */,
@@ -352,10 +358,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93802C191BEE88C800B74132 /* CustomTableViewCell.swift in Sources */,
 				93802C131BEE0F1300B74132 /* SignUpViewController.swift in Sources */,
 				93802C071BEDA7A300B74132 /* RecordingCollectionViewCell.swift in Sources */,
 				93802C051BEDA79A00B74132 /* RecorderViewController.swift in Sources */,
 				93802C091BEDA7AB00B74132 /* RecordingsCollectionViewController.swift in Sources */,
+				93802C171BEE812100B74132 /* StudioViewController.swift in Sources */,
 				93802C111BEE0F0000B74132 /* LoginViewController.swift in Sources */,
 				93802BD21BED77AF00B74132 /* AppDelegate.swift in Sources */,
 				93802C151BEE0F2000B74132 /* ResetPasswordViewController.swift in Sources */,
