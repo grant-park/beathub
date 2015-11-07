@@ -18,6 +18,15 @@ class RecorderViewController: UIViewController {
     
     var theCurrentFileName: String!
     
+    @IBAction func menuPressed(sender: AnyObject) {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let main: UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("LoginViewController")
+        
+        
+        self.presentViewController(main, animated: true, completion: { () -> Void in
+            print("segued!")
+        })
+    }
     
 //    @IBAction func handleGesture(sender: AnyObject) {
 //        if sender.state == UIGestureRecognizerState.Began {
@@ -56,10 +65,22 @@ class RecorderViewController: UIViewController {
         playButton.setTitle("Play", forState: .Normal)
         super.viewDidLoad()
         playButton.enabled = false
+        
+        
         setSessionPlayback()
         askForNotifications()
         checkHeadphones()
     }
+    
+//    override func viewWillAppear(animated: Bool) {
+//        if (PFUser.currentUser() == nil) {
+//            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                
+//                let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Login") 
+//                self.presentViewController(viewController, animated: true, completion: nil)
+//            })
+//        }
+//    }
     
     func updateAudioMeter(timer:NSTimer) {
         
@@ -521,6 +542,83 @@ class RecorderViewController: UIViewController {
 //            })
 //        }
 //    }
+    
+    func merge(audio1: NSURL, audio2:  NSURL) {
+        
+        
+        var error:NSError?
+        
+        var ok1 = false
+        var ok2 = false
+        
+        
+        var documentsDirectory:String = paths[0] as! String
+        
+        //Create AVMutableComposition Object.This object will hold our multiple AVMutableCompositionTrack.
+        var composition = AVMutableComposition()
+        var compositionAudioTrack1:AVMutableCompositionTrack = composition.addMutableTrackWithMediaType(AVMediaTypeAudio, preferredTrackID: CMPersistentTrackID())
+        var compositionAudioTrack2:AVMutableCompositionTrack = composition.addMutableTrackWithMediaType(AVMediaTypeAudio, preferredTrackID: CMPersistentTrackID())
+        
+        //create new file to receive data
+        var documentDirectoryURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first! as! NSURL
+        var fileDestinationUrl = documentDirectoryURL.URLByAppendingPathComponent("resultmerge.m4a")
+        print(fileDestinationUrl)
+        
+        
+        var url1 = audio1
+        var url2 = audio2
+        
+        
+        var avAsset1 = AVURLAsset(URL: url1, options: nil)
+        var avAsset2 = AVURLAsset(URL: url2, options: nil)
+        
+        var tracks1 =  avAsset1.tracksWithMediaType(AVMediaTypeAudio)
+        var tracks2 =  avAsset2.tracksWithMediaType(AVMediaTypeAudio)
+        
+        var assetTrack1:AVAssetTrack = tracks1[0] as! AVAssetTrack
+        var assetTrack2:AVAssetTrack = tracks2[0] as! AVAssetTrack
+        
+        
+        var duration1: CMTime = assetTrack1.timeRange.duration
+        var duration2: CMTime = assetTrack2.timeRange.duration
+        
+        var timeRange1 = CMTimeRangeMake(kCMTimeZero, duration1)
+        var timeRange2 = CMTimeRangeMake(duration1, duration2)
+        do {
+            try ok1 = compositionAudioTrack1.insertTimeRange(timeRange1, ofTrack: assetTrack1, atTime: kCMTimeZero)
+        } catch {
+            print("error with ok1")
+        }
+        if ok1 {
+            
+            ok2 = compositionAudioTrack2.insertTimeRange(timeRange2, ofTrack: assetTrack2, atTime: duration1, error: nil)
+            
+            if ok2 {
+                println("success")
+            }
+        }
+        
+        //AVAssetExportPresetPassthrough => concatenation
+        var assetExport = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetPassthrough)
+        assetExport.outputFileType = AVFileTypeWAVE
+        assetExport.outputURL = fileDestinationUrl
+        assetExport.exportAsynchronouslyWithCompletionHandler({
+            switch assetExport.status{
+            case  AVAssetExportSessionStatus.Failed:
+                println("failed \(assetExport.error)")
+            case AVAssetExportSessionStatus.Cancelled:
+                println("cancelled \(assetExport.error)")
+            default:
+                println("complete")
+                var audioPlayer = AVAudioPlayer()
+                audioPlayer = AVAudioPlayer(contentsOfURL: fileDestinationUrl, error: nil)
+                audioPlayer.prepareToPlay()
+                audioPlayer.play()
+            }
+            
+        })
+        
+    }
 
     
 }

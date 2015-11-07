@@ -16,7 +16,10 @@
 		93802C051BEDA79A00B74132 /* RecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C041BEDA79A00B74132 /* RecorderViewController.swift */; };
 		93802C071BEDA7A300B74132 /* RecordingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C061BEDA7A300B74132 /* RecordingCollectionViewCell.swift */; };
 		93802C091BEDA7AB00B74132 /* RecordingsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C081BEDA7AB00B74132 /* RecordingsCollectionViewController.swift */; };
-		93802C0B1BEE00FD00B74132 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93802C0A1BEE00FD00B74132 /* FBSDKCoreKit.framework */; };
+		93802C0F1BEE0BBE00B74132 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93802C0E1BEE0BBE00B74132 /* Default-568h@2x.png */; };
+		93802C111BEE0F0000B74132 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C101BEE0F0000B74132 /* LoginViewController.swift */; };
+		93802C131BEE0F1300B74132 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C121BEE0F1300B74132 /* SignUpViewController.swift */; };
+		93802C151BEE0F2000B74132 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C141BEE0F2000B74132 /* ResetPasswordViewController.swift */; };
 		EC410E4C8ADF70707F737FBB /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 124FAC521803DDC4CE106775 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -54,7 +57,11 @@
 		93802C041BEDA79A00B74132 /* RecorderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecorderViewController.swift; sourceTree = "<group>"; };
 		93802C061BEDA7A300B74132 /* RecordingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingCollectionViewCell.swift; sourceTree = "<group>"; };
 		93802C081BEDA7AB00B74132 /* RecordingsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingsCollectionViewController.swift; sourceTree = "<group>"; };
-		93802C0A1BEE00FD00B74132 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../Downloads/FacebookSDKs-iOS-20151026/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
+		93802C0D1BEE0B9200B74132 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "YHack/Bridging-Header.h"; sourceTree = "<group>"; };
+		93802C0E1BEE0BBE00B74132 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		93802C101BEE0F0000B74132 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		93802C121BEE0F1300B74132 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		93802C141BEE0F2000B74132 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		94C58F10F6C3C06D07493A6C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		99BE2D20C11887C88BDBD712 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,7 +72,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC410E4C8ADF70707F737FBB /* Pods.framework in Frameworks */,
-				93802C0B1BEE00FD00B74132 /* FBSDKCoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,7 +95,6 @@
 		132A33EC6C69A3311341143C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				93802C0A1BEE00FD00B74132 /* FBSDKCoreKit.framework */,
 				124FAC521803DDC4CE106775 /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -98,6 +103,8 @@
 		93802BC51BED77AF00B74132 = {
 			isa = PBXGroup;
 			children = (
+				93802C0E1BEE0BBE00B74132 /* Default-568h@2x.png */,
+				93802C0D1BEE0B9200B74132 /* Bridging-Header.h */,
 				93802BD01BED77AF00B74132 /* YHack */,
 				93802BE51BED77AF00B74132 /* YHackTests */,
 				93802BF01BED77AF00B74132 /* YHackUITests */,
@@ -125,6 +132,9 @@
 				93802BD81BED77AF00B74132 /* Assets.xcassets */,
 				93802C061BEDA7A300B74132 /* RecordingCollectionViewCell.swift */,
 				93802C081BEDA7AB00B74132 /* RecordingsCollectionViewController.swift */,
+				93802C101BEE0F0000B74132 /* LoginViewController.swift */,
+				93802C121BEE0F1300B74132 /* SignUpViewController.swift */,
+				93802C141BEE0F2000B74132 /* ResetPasswordViewController.swift */,
 				93802C041BEDA79A00B74132 /* RecorderViewController.swift */,
 				93802BDA1BED77AF00B74132 /* LaunchScreen.storyboard */,
 				93802BDD1BED77AF00B74132 /* Info.plist */,
@@ -267,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93802BDC1BED77AF00B74132 /* LaunchScreen.storyboard in Resources */,
+				93802C0F1BEE0BBE00B74132 /* Default-568h@2x.png in Resources */,
 				93802BD91BED77AF00B74132 /* Assets.xcassets in Resources */,
 				93802C031BEDA76C00B74132 /* Main.storyboard in Resources */,
 			);
@@ -341,10 +352,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93802C131BEE0F1300B74132 /* SignUpViewController.swift in Sources */,
 				93802C071BEDA7A300B74132 /* RecordingCollectionViewCell.swift in Sources */,
 				93802C051BEDA79A00B74132 /* RecorderViewController.swift in Sources */,
 				93802C091BEDA7AB00B74132 /* RecordingsCollectionViewController.swift in Sources */,
+				93802C111BEE0F0000B74132 /* LoginViewController.swift in Sources */,
 				93802BD21BED77AF00B74132 /* AppDelegate.swift in Sources */,
+				93802C151BEE0F2000B74132 /* ResetPasswordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
