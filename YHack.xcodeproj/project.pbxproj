@@ -16,6 +16,7 @@
 		93802C051BEDA79A00B74132 /* RecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C041BEDA79A00B74132 /* RecorderViewController.swift */; };
 		93802C071BEDA7A300B74132 /* RecordingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C061BEDA7A300B74132 /* RecordingCollectionViewCell.swift */; };
 		93802C091BEDA7AB00B74132 /* RecordingsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C081BEDA7AB00B74132 /* RecordingsCollectionViewController.swift */; };
+		93802C0B1BEE00FD00B74132 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93802C0A1BEE00FD00B74132 /* FBSDKCoreKit.framework */; };
 		EC410E4C8ADF70707F737FBB /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 124FAC521803DDC4CE106775 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		93802C041BEDA79A00B74132 /* RecorderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecorderViewController.swift; sourceTree = "<group>"; };
 		93802C061BEDA7A300B74132 /* RecordingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingCollectionViewCell.swift; sourceTree = "<group>"; };
 		93802C081BEDA7AB00B74132 /* RecordingsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingsCollectionViewController.swift; sourceTree = "<group>"; };
+		93802C0A1BEE00FD00B74132 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../Downloads/FacebookSDKs-iOS-20151026/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 		94C58F10F6C3C06D07493A6C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		99BE2D20C11887C88BDBD712 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,6 +65,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC410E4C8ADF70707F737FBB /* Pods.framework in Frameworks */,
+				93802C0B1BEE00FD00B74132 /* FBSDKCoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +89,7 @@
 		132A33EC6C69A3311341143C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				93802C0A1BEE00FD00B74132 /* FBSDKCoreKit.framework */,
 				124FAC521803DDC4CE106775 /* Pods.framework */,
 			);
 			name = Frameworks;
