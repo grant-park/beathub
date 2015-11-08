@@ -23,6 +23,8 @@
 		93802C651BEEFEC500B74132 /* StudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C5D1BEEFEC500B74132 /* StudioViewController.swift */; };
 		93802C671BEEFED100B74132 /* StyleConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C661BEEFED100B74132 /* StyleConstants.swift */; };
 		93802C691BEF012800B74132 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93802C681BEF012800B74132 /* Main.storyboard */; };
+		93802C6B1BEF1FB300B74132 /* NewsfeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C6A1BEF1FB300B74132 /* NewsfeedViewController.swift */; };
+		93802C6D1BEF1FE300B74132 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C6C1BEF1FE300B74132 /* NewsCell.swift */; };
 		EC410E4C8ADF70707F737FBB /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 124FAC521803DDC4CE106775 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -68,6 +70,8 @@
 		93802C5D1BEEFEC500B74132 /* StudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudioViewController.swift; sourceTree = "<group>"; };
 		93802C661BEEFED100B74132 /* StyleConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleConstants.swift; sourceTree = "<group>"; };
 		93802C681BEF012800B74132 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		93802C6A1BEF1FB300B74132 /* NewsfeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsfeedViewController.swift; sourceTree = "<group>"; };
+		93802C6C1BEF1FE300B74132 /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		94C58F10F6C3C06D07493A6C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		99BE2D20C11887C88BDBD712 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,6 +146,8 @@
 				93802C591BEEFEC500B74132 /* RecordingCollectionViewCell.swift */,
 				93802C681BEF012800B74132 /* Main.storyboard */,
 				93802C5A1BEEFEC500B74132 /* RecordingsCollectionViewController.swift */,
+				93802C6C1BEF1FE300B74132 /* NewsCell.swift */,
+				93802C6A1BEF1FB300B74132 /* NewsfeedViewController.swift */,
 				93802C5B1BEEFEC500B74132 /* ResetPasswordViewController.swift */,
 				93802C5C1BEEFEC500B74132 /* SignUpViewController.swift */,
 				93802C5D1BEEFEC500B74132 /* StudioViewController.swift */,
@@ -362,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93802C601BEEFEC500B74132 /* RecorderViewController.swift in Sources */,
+				93802C6B1BEF1FB300B74132 /* NewsfeedViewController.swift in Sources */,
 				93802C5F1BEEFEC500B74132 /* LoginViewController.swift in Sources */,
 				93802C641BEEFEC500B74132 /* SignUpViewController.swift in Sources */,
 				93802C5E1BEEFEC500B74132 /* CustomTableViewCell.swift in Sources */,
@@ -370,6 +377,7 @@
 				93802C621BEEFEC500B74132 /* RecordingsCollectionViewController.swift in Sources */,
 				93802C671BEEFED100B74132 /* StyleConstants.swift in Sources */,
 				93802C611BEEFEC500B74132 /* RecordingCollectionViewCell.swift in Sources */,
+				93802C6D1BEF1FE300B74132 /* NewsCell.swift in Sources */,
 				93802C631BEEFEC500B74132 /* ResetPasswordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

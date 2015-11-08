@@ -89,7 +89,7 @@ class RecorderViewController: UIViewController, EZMicrophoneDelegate {
         
         let button : FBSDKShareButton = FBSDKShareButton()
         button.shareContent = content
-        button.frame = CGRectMake((UIScreen.mainScreen().bounds.width - 100) * 0.55, 375, 70, 25)
+        button.frame = CGRectMake((UIScreen.mainScreen().bounds.width - 100) * 0.55, 380, 70, 25)
         self.view.addSubview(button)
     }
     
