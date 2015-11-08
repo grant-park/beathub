@@ -11,6 +11,10 @@ import Parse
 import AVFoundation
 
 class NewsfeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     let reuseIdentifier = "newsCell"
     var posts: [PFObject] = []
     @IBAction func cancelled(sender: AnyObject) {
@@ -21,9 +25,11 @@ class NewsfeedViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         let postQuery = PFQuery(className: "Audio")
-        postQuery.limit = 10
+        postQuery.limit = 99
         postQuery.findObjectsInBackgroundWithBlock { (theArray, error) -> Void in
             self.posts = (theArray as [PFObject]!)!
+            print(self.posts)
+            self.tableView.reloadData()
         }
 
     }
@@ -34,13 +40,11 @@ class NewsfeedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("bob")
         return posts.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! NewsCell
-        
         let postings: PFObject = posts[indexPath.row]
         cell.newsLabel.text = postings["name"] as? String
         let theSound: PFFile = postings["audio"] as! PFFile
@@ -50,7 +54,7 @@ class NewsfeedViewController: UIViewController, UITableViewDelegate, UITableView
                     print("error caching or downloading image")
                     return
                 }
-            do {let player = try AVAudioPlayer(data: soundData!);player.delegate=self as? AVAudioPlayerDelegate;cell.sound = player} catch {print("soundData pls")}
+            do {let player = try AVAudioPlayer(data: soundData!);player.delegate=self as? AVAudioPlayerDelegate;cell.sound = player;print(player)} catch {print("soundData pls")}
             }
         return cell
     }

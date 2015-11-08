@@ -142,8 +142,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqR-BX-fvB">
-                                                    <rect key="frame" x="8" y="8" width="549" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqR-BX-fvB">
+                                                    <rect key="frame" x="26" y="8" width="549" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -153,8 +153,8 @@
                                             <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="vqR-BX-fvB" secondAttribute="bottom" constant="6.5" id="7Ha-Uv-2BR"/>
-                                                <constraint firstItem="vqR-BX-fvB" firstAttribute="leading" secondItem="09B-EZ-aEf" secondAttribute="leadingMargin" id="AJz-Om-T2S"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="vqR-BX-fvB" secondAttribute="trailing" constant="35" id="UTf-tZ-tPR"/>
+                                                <constraint firstItem="vqR-BX-fvB" firstAttribute="leading" secondItem="09B-EZ-aEf" secondAttribute="leadingMargin" constant="18" id="AJz-Om-T2S"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="vqR-BX-fvB" secondAttribute="trailing" constant="17" id="UTf-tZ-tPR"/>
                                                 <constraint firstItem="vqR-BX-fvB" firstAttribute="top" secondItem="09B-EZ-aEf" secondAttribute="topMargin" id="eg8-mZ-FtW"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -184,6 +184,7 @@
                     </view>
                     <connections>
                         <outlet property="newsTable" destination="evZ-Jn-fka" id="6iF-9o-Nan"/>
+                        <outlet property="tableView" destination="evZ-Jn-fka" id="0NC-6N-UEi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BFd-xs-mxq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -232,7 +233,7 @@
                                 <rect key="frame" x="0.0" y="240" width="600" height="79"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dy-Uj-1x0">
-                                        <rect key="frame" x="254" y="-8" width="92" height="96"/>
+                                        <rect key="frame" x="254" y="15" width="92" height="96"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="96" id="f5L-lr-I5X"/>
@@ -245,7 +246,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="7dy-Uj-1x0" firstAttribute="centerX" secondItem="aKS-Uz-vK6" secondAttribute="centerX" id="63D-qS-n2g"/>
-                                    <constraint firstItem="7dy-Uj-1x0" firstAttribute="centerY" secondItem="aKS-Uz-vK6" secondAttribute="centerY" id="XET-pU-QlM"/>
+                                    <constraint firstItem="7dy-Uj-1x0" firstAttribute="centerY" secondItem="aKS-Uz-vK6" secondAttribute="centerY" constant="23.5" id="XET-pU-QlM"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
@@ -284,16 +285,26 @@
                                     <segue destination="0E4-Fv-P98" kind="presentation" id="G1N-qL-giw"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line" translatesAutoresizingMaskIntoConstraints="NO" id="h2P-Vr-WT6">
+                                <rect key="frame" x="219" y="89" width="163" height="86"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="163" id="X5A-cV-GWe"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.14901960784313725" green="0.14509803921568626" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="h2P-Vr-WT6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="25" id="9QX-pS-hSM"/>
                             <constraint firstItem="aKS-Uz-vK6" firstAttribute="top" secondItem="vsZ-8x-vlz" secondAttribute="bottom" constant="23" id="GgU-xL-Eus"/>
                             <constraint firstItem="kI1-0Y-yEN" firstAttribute="centerX" secondItem="aKS-Uz-vK6" secondAttribute="centerX" id="MOs-B4-X3q"/>
                             <constraint firstAttribute="trailing" secondItem="aKS-Uz-vK6" secondAttribute="trailing" id="OYk-os-wTn"/>
                             <constraint firstAttribute="bottom" secondItem="kI1-0Y-yEN" secondAttribute="bottom" constant="20" symbolic="YES" id="Obj-Ja-U3B"/>
+                            <constraint firstItem="h2P-Vr-WT6" firstAttribute="centerX" secondItem="vsZ-8x-vlz" secondAttribute="centerX" id="Wmd-Wy-vTZ"/>
                             <constraint firstItem="CE4-XH-JHN" firstAttribute="top" secondItem="LTv-xA-xam" secondAttribute="top" id="WoZ-24-yh5"/>
+                            <constraint firstItem="vsZ-8x-vlz" firstAttribute="top" secondItem="h2P-Vr-WT6" secondAttribute="bottom" constant="8" symbolic="YES" id="bLb-Rk-dHd"/>
                             <constraint firstItem="vsZ-8x-vlz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="119" id="g8p-WJ-C2B"/>
                             <constraint firstItem="aKS-Uz-vK6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="240" id="ghT-nU-l5A"/>
                             <constraint firstItem="vsZ-8x-vlz" firstAttribute="centerX" secondItem="aKS-Uz-vK6" secondAttribute="centerX" id="gwX-TF-gxd"/>
@@ -658,6 +669,7 @@
     <resources>
         <image name="arrow2" width="26" height="37"/>
         <image name="history" width="25" height="36"/>
+        <image name="line" width="77" height="70"/>
         <image name="mic" width="90" height="90"/>
         <image name="play" width="41" height="41"/>
     </resources>
