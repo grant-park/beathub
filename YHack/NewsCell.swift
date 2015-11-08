@@ -6,8 +6,11 @@
 //  Copyright © 2015 Grant Hyun Park. All rights reserved.
 //
 
-import Cocoa
+import UIKit
+import AVFoundation
 
 class NewsCell: UITableViewCell {
 
+    @IBOutlet weak var newsLabel: UILabel!
+    var sound: AVAudioPlayer!
 }
