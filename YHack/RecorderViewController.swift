@@ -9,8 +9,14 @@
 import UIKit
 import AVFoundation
 import Parse
+import FBSDKShareKit
+import EZAudio
 
-class RecorderViewController: UIViewController {
+class RecorderViewController: UIViewController, EZMicrophoneDelegate {
+    
+    
+    @IBOutlet weak var plot: EZAudioPlot!
+      var microphone: EZMicrophone!;
     
     var recorder: AVAudioRecorder!
     
@@ -18,15 +24,15 @@ class RecorderViewController: UIViewController {
     
     var theCurrentFileName: String!
     
-    @IBAction func menuPressed(sender: AnyObject) {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let main: UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("LoginViewController")
-        
-        
-        self.presentViewController(main, animated: true, completion: { () -> Void in
-            print("segued!")
-        })
-    }
+//    @IBAction func menuPressed(sender: AnyObject) {
+//        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let main: UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("LoginViewController")
+//        
+//        
+//        self.presentViewController(main, animated: true, completion: { () -> Void in
+//            print("segued!")
+//        })
+//    }
     
 //    @IBAction func handleGesture(sender: AnyObject) {
 //        if sender.state == UIGestureRecognizerState.Began {
@@ -62,7 +68,11 @@ class RecorderViewController: UIViewController {
         recordButton.addTarget(self, action: Selector("holdRelease:"), forControlEvents: UIControlEvents.TouchUpInside)
         recordButton.addTarget(self, action: Selector("holdDown:"), forControlEvents: UIControlEvents.TouchDown)
         
-        playButton.setTitle("Play", forState: .Normal)
+        microphone = EZMicrophone(delegate: self, startsImmediately: true);
+        plot?.shouldFill = true;
+        plot?.shouldMirror = true;
+        
+
         super.viewDidLoad()
         playButton.enabled = false
         
@@ -70,6 +80,17 @@ class RecorderViewController: UIViewController {
         setSessionPlayback()
         askForNotifications()
         checkHeadphones()
+        
+        let content : FBSDKShareLinkContent = FBSDKShareLinkContent()
+        content.contentURL = NSURL(string: "<INSERT STRING HERE>")
+        content.contentTitle = "<INSERT STRING HERE>"
+        content.contentDescription = "<INSERT STRING HERE>"
+        //        content.imageURL = NSURL(string: "<INSERT STRING HERE>")
+        
+        let button : FBSDKShareButton = FBSDKShareButton()
+        button.shareContent = content
+        button.frame = CGRectMake((UIScreen.mainScreen().bounds.width - 100) * 0.55, 375, 70, 25)
+        self.view.addSubview(button)
     }
     
 //    override func viewWillAppear(animated: Bool) {
@@ -81,6 +102,11 @@ class RecorderViewController: UIViewController {
 //            })
 //        }
 //    }
+    func microphone(microphone: EZMicrophone!, hasAudioReceived buffer: UnsafeMutablePointer<UnsafeMutablePointer<Float>>, withBufferSize bufferSize: UInt32, withNumberOfChannels numberOfChannels: UInt32) {
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.plot?.updateBuffer(buffer[0], withBufferSize: bufferSize);
+        });
+    }
     
     func updateAudioMeter(timer:NSTimer) {
         
@@ -160,11 +186,11 @@ class RecorderViewController: UIViewController {
     
     @IBAction func play(sender: UIButton) {
         setSessionPlayback()
-        if (playButton.titleLabel?.text == "Play") {
-            playButton.setTitle("Stop", forState:.Normal)
+        if (playButton.imageView?.image == UIImage(named: "play")) {
+            playButton.setImage(UIImage(named: "stop"), forState: .Normal)
             play()
         } else {
-            playButton.setTitle("Play", forState:.Normal)
+            playButton.setImage(UIImage(named: "play"), forState: .Normal)
             stop()
         }
     }
@@ -564,15 +590,6 @@ class RecorderViewController: UIViewController {
         let fileDestinationUrl = documentDirectoryURL.URLByAppendingPathComponent("resultmerge.m4a")
         print(fileDestinationUrl)
         
-        
-        
-        
-        
-        
-        let filePath = NSURL(fileURLWithPath: self.getCacheDirectory()).URLByAppendingPathComponent(self.theCurrentFileName)
-        
-        let dataToUpload : NSData = NSData(contentsOfURL: filePath)!
-        
     
         
         let file = "resultmerge.m4a"
@@ -694,6 +711,7 @@ extension RecorderViewController : AVAudioRecorderDelegate {
                 let filePath = NSURL(fileURLWithPath: self.getCacheDirectory()).URLByAppendingPathComponent(self.theCurrentFileName)
                 
                 let dataToUpload : NSData = NSData(contentsOfURL: filePath)!
+                
                 
                 let soundFile = PFFile(name: self.theCurrentFileName, data: dataToUpload)
                 let userSound = PFObject(className:"Audio")

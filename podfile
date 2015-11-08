@@ -5,3 +5,5 @@ use_frameworks!
 pod 'Parse'
 pod 'FBSDKCoreKit'
 pod 'ParseFacebookUtilsV4'
+pod 'FBSDKShareKit'
+pod 'EZAudio', '~> 1.1.2'

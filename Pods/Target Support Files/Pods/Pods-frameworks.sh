@@ -53,15 +53,21 @@ code_sign_if_enabled() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Pods/Bolts.framework'
+  install_framework 'Pods/EZAudio.framework'
   install_framework 'Pods/FBSDKCoreKit.framework'
   install_framework 'Pods/FBSDKLoginKit.framework'
+  install_framework 'Pods/FBSDKShareKit.framework'
   install_framework 'Pods/Parse.framework'
   install_framework 'Pods/ParseFacebookUtilsV4.framework'
+  install_framework 'Pods/TPCircularBuffer.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods/Bolts.framework'
+  install_framework 'Pods/EZAudio.framework'
   install_framework 'Pods/FBSDKCoreKit.framework'
   install_framework 'Pods/FBSDKLoginKit.framework'
+  install_framework 'Pods/FBSDKShareKit.framework'
   install_framework 'Pods/Parse.framework'
   install_framework 'Pods/ParseFacebookUtilsV4.framework'
+  install_framework 'Pods/TPCircularBuffer.framework'
 fi
