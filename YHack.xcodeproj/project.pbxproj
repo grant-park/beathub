@@ -7,20 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93802BD21BED77AF00B74132 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802BD11BED77AF00B74132 /* AppDelegate.swift */; };
+		93802BD91BED77AF00B74132 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93802BD81BED77AF00B74132 /* Assets.xcassets */; };
+		93802BDC1BED77AF00B74132 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93802BDA1BED77AF00B74132 /* LaunchScreen.storyboard */; };
 		93802BE71BED77AF00B74132 /* YHackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802BE61BED77AF00B74132 /* YHackTests.swift */; };
 		93802BF21BED77AF00B74132 /* YHackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802BF11BED77AF00B74132 /* YHackUITests.swift */; };
 		93802C0F1BEE0BBE00B74132 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93802C0E1BEE0BBE00B74132 /* Default-568h@2x.png */; };
-		93802C411BEEFBD300B74132 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93802C401BEEFBD300B74132 /* Assets.xcassets */; };
-		93802C4C1BEEFBF100B74132 /* RecordingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C421BEEFBF100B74132 /* RecordingCollectionViewCell.swift */; };
-		93802C4D1BEEFBF100B74132 /* RecordingsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C431BEEFBF100B74132 /* RecordingsCollectionViewController.swift */; };
-		93802C4E1BEEFBF100B74132 /* StudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C441BEEFBF100B74132 /* StudioViewController.swift */; };
-		93802C4F1BEEFBF100B74132 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C451BEEFBF100B74132 /* CustomTableViewCell.swift */; };
-		93802C501BEEFBF100B74132 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C461BEEFBF100B74132 /* LoginViewController.swift */; };
-		93802C511BEEFBF100B74132 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C471BEEFBF100B74132 /* SignUpViewController.swift */; };
-		93802C521BEEFBF100B74132 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C481BEEFBF100B74132 /* ResetPasswordViewController.swift */; };
-		93802C531BEEFBF100B74132 /* StyleConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C491BEEFBF100B74132 /* StyleConstants.swift */; };
-		93802C541BEEFBF100B74132 /* RecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C4A1BEEFBF100B74132 /* RecorderViewController.swift */; };
-		93802C551BEEFBF100B74132 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93802C4B1BEEFBF100B74132 /* LaunchScreen.storyboard */; };
+		93802C5E1BEEFEC500B74132 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C561BEEFEC500B74132 /* CustomTableViewCell.swift */; };
+		93802C5F1BEEFEC500B74132 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C571BEEFEC500B74132 /* LoginViewController.swift */; };
+		93802C601BEEFEC500B74132 /* RecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C581BEEFEC500B74132 /* RecorderViewController.swift */; };
+		93802C611BEEFEC500B74132 /* RecordingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C591BEEFEC500B74132 /* RecordingCollectionViewCell.swift */; };
+		93802C621BEEFEC500B74132 /* RecordingsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C5A1BEEFEC500B74132 /* RecordingsCollectionViewController.swift */; };
+		93802C631BEEFEC500B74132 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C5B1BEEFEC500B74132 /* ResetPasswordViewController.swift */; };
+		93802C641BEEFEC500B74132 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C5C1BEEFEC500B74132 /* SignUpViewController.swift */; };
+		93802C651BEEFEC500B74132 /* StudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C5D1BEEFEC500B74132 /* StudioViewController.swift */; };
+		93802C671BEEFED100B74132 /* StyleConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93802C661BEEFED100B74132 /* StyleConstants.swift */; };
+		93802C691BEF012800B74132 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93802C681BEF012800B74132 /* Main.storyboard */; };
 		EC410E4C8ADF70707F737FBB /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 124FAC521803DDC4CE106775 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -44,6 +46,9 @@
 /* Begin PBXFileReference section */
 		124FAC521803DDC4CE106775 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93802BCE1BED77AF00B74132 /* YHack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YHack.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		93802BD11BED77AF00B74132 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		93802BD81BED77AF00B74132 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		93802BDB1BED77AF00B74132 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93802BDD1BED77AF00B74132 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93802BE21BED77AF00B74132 /* YHackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YHackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93802BE61BED77AF00B74132 /* YHackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YHackTests.swift; sourceTree = "<group>"; };
@@ -53,17 +58,16 @@
 		93802BF31BED77AF00B74132 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93802C0D1BEE0B9200B74132 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "YHack/Bridging-Header.h"; sourceTree = "<group>"; };
 		93802C0E1BEE0BBE00B74132 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		93802C401BEEFBD300B74132 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		93802C421BEEFBF100B74132 /* RecordingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingCollectionViewCell.swift; sourceTree = "<group>"; };
-		93802C431BEEFBF100B74132 /* RecordingsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingsCollectionViewController.swift; sourceTree = "<group>"; };
-		93802C441BEEFBF100B74132 /* StudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudioViewController.swift; sourceTree = "<group>"; };
-		93802C451BEEFBF100B74132 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
-		93802C461BEEFBF100B74132 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		93802C471BEEFBF100B74132 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		93802C481BEEFBF100B74132 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
-		93802C491BEEFBF100B74132 /* StyleConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleConstants.swift; sourceTree = "<group>"; };
-		93802C4A1BEEFBF100B74132 /* RecorderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecorderViewController.swift; sourceTree = "<group>"; };
-		93802C4B1BEEFBF100B74132 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		93802C561BEEFEC500B74132 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		93802C571BEEFEC500B74132 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		93802C581BEEFEC500B74132 /* RecorderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecorderViewController.swift; sourceTree = "<group>"; };
+		93802C591BEEFEC500B74132 /* RecordingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingCollectionViewCell.swift; sourceTree = "<group>"; };
+		93802C5A1BEEFEC500B74132 /* RecordingsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingsCollectionViewController.swift; sourceTree = "<group>"; };
+		93802C5B1BEEFEC500B74132 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		93802C5C1BEEFEC500B74132 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		93802C5D1BEEFEC500B74132 /* StudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudioViewController.swift; sourceTree = "<group>"; };
+		93802C661BEEFED100B74132 /* StyleConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleConstants.swift; sourceTree = "<group>"; };
+		93802C681BEF012800B74132 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		94C58F10F6C3C06D07493A6C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		99BE2D20C11887C88BDBD712 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,17 +133,19 @@
 		93802BD01BED77AF00B74132 /* YHack */ = {
 			isa = PBXGroup;
 			children = (
-				93802C401BEEFBD300B74132 /* Assets.xcassets */,
-				93802C421BEEFBF100B74132 /* RecordingCollectionViewCell.swift */,
-				93802C431BEEFBF100B74132 /* RecordingsCollectionViewController.swift */,
-				93802C441BEEFBF100B74132 /* StudioViewController.swift */,
-				93802C451BEEFBF100B74132 /* CustomTableViewCell.swift */,
-				93802C461BEEFBF100B74132 /* LoginViewController.swift */,
-				93802C471BEEFBF100B74132 /* SignUpViewController.swift */,
-				93802C481BEEFBF100B74132 /* ResetPasswordViewController.swift */,
-				93802C491BEEFBF100B74132 /* StyleConstants.swift */,
-				93802C4A1BEEFBF100B74132 /* RecorderViewController.swift */,
-				93802C4B1BEEFBF100B74132 /* LaunchScreen.storyboard */,
+				93802BD81BED77AF00B74132 /* Assets.xcassets */,
+				93802BD11BED77AF00B74132 /* AppDelegate.swift */,
+				93802C561BEEFEC500B74132 /* CustomTableViewCell.swift */,
+				93802C571BEEFEC500B74132 /* LoginViewController.swift */,
+				93802C661BEEFED100B74132 /* StyleConstants.swift */,
+				93802C581BEEFEC500B74132 /* RecorderViewController.swift */,
+				93802C591BEEFEC500B74132 /* RecordingCollectionViewCell.swift */,
+				93802C681BEF012800B74132 /* Main.storyboard */,
+				93802C5A1BEEFEC500B74132 /* RecordingsCollectionViewController.swift */,
+				93802C5B1BEEFEC500B74132 /* ResetPasswordViewController.swift */,
+				93802C5C1BEEFEC500B74132 /* SignUpViewController.swift */,
+				93802C5D1BEEFEC500B74132 /* StudioViewController.swift */,
+				93802BDA1BED77AF00B74132 /* LaunchScreen.storyboard */,
 				93802BDD1BED77AF00B74132 /* Info.plist */,
 			);
 			path = YHack;
@@ -279,9 +285,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93802C551BEEFBF100B74132 /* LaunchScreen.storyboard in Resources */,
+				93802BDC1BED77AF00B74132 /* LaunchScreen.storyboard in Resources */,
 				93802C0F1BEE0BBE00B74132 /* Default-568h@2x.png in Resources */,
-				93802C411BEEFBD300B74132 /* Assets.xcassets in Resources */,
+				93802BD91BED77AF00B74132 /* Assets.xcassets in Resources */,
+				93802C691BEF012800B74132 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,15 +361,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93802C511BEEFBF100B74132 /* SignUpViewController.swift in Sources */,
-				93802C4D1BEEFBF100B74132 /* RecordingsCollectionViewController.swift in Sources */,
-				93802C4E1BEEFBF100B74132 /* StudioViewController.swift in Sources */,
-				93802C4F1BEEFBF100B74132 /* CustomTableViewCell.swift in Sources */,
-				93802C541BEEFBF100B74132 /* RecorderViewController.swift in Sources */,
-				93802C501BEEFBF100B74132 /* LoginViewController.swift in Sources */,
-				93802C531BEEFBF100B74132 /* StyleConstants.swift in Sources */,
-				93802C4C1BEEFBF100B74132 /* RecordingCollectionViewCell.swift in Sources */,
-				93802C521BEEFBF100B74132 /* ResetPasswordViewController.swift in Sources */,
+				93802C601BEEFEC500B74132 /* RecorderViewController.swift in Sources */,
+				93802C5F1BEEFEC500B74132 /* LoginViewController.swift in Sources */,
+				93802C641BEEFEC500B74132 /* SignUpViewController.swift in Sources */,
+				93802C5E1BEEFEC500B74132 /* CustomTableViewCell.swift in Sources */,
+				93802C651BEEFEC500B74132 /* StudioViewController.swift in Sources */,
+				93802BD21BED77AF00B74132 /* AppDelegate.swift in Sources */,
+				93802C621BEEFEC500B74132 /* RecordingsCollectionViewController.swift in Sources */,
+				93802C671BEEFED100B74132 /* StyleConstants.swift in Sources */,
+				93802C611BEEFEC500B74132 /* RecordingCollectionViewCell.swift in Sources */,
+				93802C631BEEFEC500B74132 /* ResetPasswordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,11 +405,22 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		93802BDA1BED77AF00B74132 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93802BDB1BED77AF00B74132 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		93802BF41BED77AF00B74132 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -446,7 +465,7 @@
 		93802BF51BED77AF00B74132 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -486,13 +505,11 @@
 			baseConfigurationReference = 94C58F10F6C3C06D07493A6C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
 				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(SRCROOT)";
 				INFOPLIST_FILE = YHack/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.GrantPark.YHack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -501,7 +518,6 @@
 			baseConfigurationReference = 99BE2D20C11887C88BDBD712 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
 				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(SCROOT)";
 				INFOPLIST_FILE = YHack/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

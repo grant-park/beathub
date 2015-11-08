@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "65BC846DA5ECD4C5D7C52E66"
+               BlueprintIdentifier = "C855151E7256A2056A5C9EF5"
                BuildableName = "TPCircularBuffer.framework"
                BlueprintName = "TPCircularBuffer"
                ReferencedContainer = "container:Pods.xcodeproj">
